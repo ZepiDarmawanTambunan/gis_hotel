@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<head>    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script>L_PREFER_CANVAS=false; L_NO_TOUCH=false; L_DISABLE_3D=false;</script>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.4.0/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.4.0/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://rawcdn.githack.com/python-visualization/folium/master/folium/templates/leaflet.awesome.rotate.css"/>
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    
+    <meta name="viewport" content="width=device-width,
+        initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <style>#map_76456ceb02f554743fb011bab5a6d6a0 {
+        position: relative;
+        width: 100.0%;
+        height: 100.0%;
+        left: 0.0%;
+        top: 0.0%;
+        }
+    </style>
+    <script src="https://leaflet.github.io/Leaflet.heat/dist/leaflet-heat.js"></script>
+</head>
+<body>    
+    
+    <div class="folium-map" id="map_76456ceb02f554743fb011bab5a6d6a0" ></div>
+</body>
+<script>    
+    
+    
+        var bounds = null;
+    
+
+    var map_76456ceb02f554743fb011bab5a6d6a0 = L.map(
+        'map_76456ceb02f554743fb011bab5a6d6a0', {
+        center: [-1.59577, 103.6112763],
+        zoom: 13,
+        maxBounds: bounds,
+        layers: [],
+        worldCopyJump: false,
+        crs: L.CRS.EPSG3857,
+        zoomControl: true,
+        });
+
+
+    
+    var tile_layer_607d733337f72ffdd41014479f2e42d2 = L.tileLayer(
+        'https://cartodb-basemaps-{s}.global.ssl.fastly.net/dark_all/{z}/{x}/{y}.png',
+        {
+        "attribution": null,
+        "detectRetina": false,
+        "maxNativeZoom": 18,
+        "maxZoom": 18,
+        "minZoom": 0,
+        "noWrap": false,
+        "opacity": 1,
+        "subdomains": "abc",
+        "tms": false
+}).addTo(map_76456ceb02f554743fb011bab5a6d6a0);
+    
+        var marker_77d3f02a3572cdddfa474622be768fe7 = L.marker(
+            [-1.5990709, 103.6145228],
+            {
+                icon: new L.Icon.Default(),
+                }
+            ).addTo(map_76456ceb02f554743fb011bab5a6d6a0);
+        
+    
+
+                var icon_9ae4c707eb91ee62145437d361288fea = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'purple',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_77d3f02a3572cdddfa474622be768fe7.setIcon(icon_9ae4c707eb91ee62145437d361288fea);
+            
+    
+            var popup_1dc71334ba5afca479831cae0bca1d7c = L.popup({maxWidth: '300'
+            
+            });
+
+            
+                var html_b32ce098ff3aa3047c7486b973196034 = $(`<div id="html_b32ce098ff3aa3047c7486b973196034" style="width: 100.0%; height: 100.0%;">Nama Hotel: Odua Weston Jambi<br>Latitude: -1.5990709<br>Longitude: 103.6145228<br>Bintang: 3<br>Rentang Harga Kamar: Rp.250.000 - Rp.500.000</div>`)[0];
+                popup_1dc71334ba5afca479831cae0bca1d7c.setContent(html_b32ce098ff3aa3047c7486b973196034);
+            
+
+            marker_77d3f02a3572cdddfa474622be768fe7.bindPopup(popup_1dc71334ba5afca479831cae0bca1d7c)
+            ;
+
+            
+        
+    
+        marker_77d3f02a3572cdddfa474622be768fe7.bindTooltip(
+            `<div>`
+            + `Odua Weston Jambi` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+        var marker_915f85d2d196a89ba6482ae2198474e3 = L.marker(
+            [-1.5888254, 103.6137932],
+            {
+                icon: new L.Icon.Default(),
+                }
+            ).addTo(map_76456ceb02f554743fb011bab5a6d6a0);
+        
+    
+
+                var icon_2ac1c9541dde60e882b88437e3fec09f = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'purple',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_915f85d2d196a89ba6482ae2198474e3.setIcon(icon_2ac1c9541dde60e882b88437e3fec09f);
+            
+    
+            var popup_10c26b938e29ee01e35b4033e055b368 = L.popup({maxWidth: '300'
+            
+            });
+
+            
+                var html_db73bcbf80cc809a380624f91de439f7 = $(`<div id="html_db73bcbf80cc809a380624f91de439f7" style="width: 100.0%; height: 100.0%;">Nama Hotel: Wiltop Jambi By BENCOOLEN<br>Latitude: -1.5888254<br>Longitude: 103.6137932<br>Bintang: 3<br>Rentang Harga Kamar: Rp.250.000 - Rp.500.000</div>`)[0];
+                popup_10c26b938e29ee01e35b4033e055b368.setContent(html_db73bcbf80cc809a380624f91de439f7);
+            
+
+            marker_915f85d2d196a89ba6482ae2198474e3.bindPopup(popup_10c26b938e29ee01e35b4033e055b368)
+            ;
+
+            
+        
+    
+        marker_915f85d2d196a89ba6482ae2198474e3.bindTooltip(
+            `<div>`
+            + `Wiltop Jambi By BENCOOLEN` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+        var marker_6177218d6aa50501fe9ee73383bafc1d = L.marker(
+            [-1.6031999, 103.5992358],
+            {
+                icon: new L.Icon.Default(),
+                }
+            ).addTo(map_76456ceb02f554743fb011bab5a6d6a0);
+        
+    
+
+                var icon_2bc1ef5061cf2347fb4d35ee770758df = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'purple',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_6177218d6aa50501fe9ee73383bafc1d.setIcon(icon_2bc1ef5061cf2347fb4d35ee770758df);
+            
+    
+            var popup_a770722bc8f84107f8bb7ac5e727af63 = L.popup({maxWidth: '300'
+            
+            });
+
+            
+                var html_4d369f243fed2fef97e5aa6563debbee = $(`<div id="html_4d369f243fed2fef97e5aa6563debbee" style="width: 100.0%; height: 100.0%;">Nama Hotel: Luminor Hotel Jambi<br>Latitude: -1.6031999<br>Longitude: 103.5992358<br>Bintang: 3<br>Rentang Harga Kamar: Rp.250.000 - Rp.500.000</div>`)[0];
+                popup_a770722bc8f84107f8bb7ac5e727af63.setContent(html_4d369f243fed2fef97e5aa6563debbee);
+            
+
+            marker_6177218d6aa50501fe9ee73383bafc1d.bindPopup(popup_a770722bc8f84107f8bb7ac5e727af63)
+            ;
+
+            
+        
+    
+        marker_6177218d6aa50501fe9ee73383bafc1d.bindTooltip(
+            `<div>`
+            + `Luminor Hotel Jambi` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+        var marker_694f49b6f690591e2f097e1b6d5a0171 = L.marker(
+            [-1.5899404, 103.6127498],
+            {
+                icon: new L.Icon.Default(),
+                }
+            ).addTo(map_76456ceb02f554743fb011bab5a6d6a0);
+        
+    
+
+                var icon_c2204456fa7ccd5a929707c9ec6ffa7b = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'purple',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_694f49b6f690591e2f097e1b6d5a0171.setIcon(icon_c2204456fa7ccd5a929707c9ec6ffa7b);
+            
+    
+            var popup_e060b9466fa41a3fbb19a6d839d6d053 = L.popup({maxWidth: '300'
+            
+            });
+
+            
+                var html_acc9deb3f3bbc1416e1c57aff84db039 = $(`<div id="html_acc9deb3f3bbc1416e1c57aff84db039" style="width: 100.0%; height: 100.0%;">Nama Hotel: Infinity Hotel Jambi By Tritama Hopitality<br>Latitude: -1.5899404<br>Longitude: 103.6127498<br>Bintang: 3<br>Rentang Harga Kamar: > Rp.500.000</div>`)[0];
+                popup_e060b9466fa41a3fbb19a6d839d6d053.setContent(html_acc9deb3f3bbc1416e1c57aff84db039);
+            
+
+            marker_694f49b6f690591e2f097e1b6d5a0171.bindPopup(popup_e060b9466fa41a3fbb19a6d839d6d053)
+            ;
+
+            
+        
+    
+        marker_694f49b6f690591e2f097e1b6d5a0171.bindTooltip(
+            `<div>`
+            + `Infinity Hotel Jambi By Tritama Hopitality` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+        var marker_2c945b61d91cba6f34898d14c7231d56 = L.marker(
+            [-1.6198713, 103.580603],
+            {
+                icon: new L.Icon.Default(),
+                }
+            ).addTo(map_76456ceb02f554743fb011bab5a6d6a0);
+        
+    
+
+                var icon_240a4a26e8a19af8f625bd4184b657a4 = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'purple',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_2c945b61d91cba6f34898d14c7231d56.setIcon(icon_240a4a26e8a19af8f625bd4184b657a4);
+            
+    
+            var popup_57c78a98e4aa04c4b0b8e00cdd6d8854 = L.popup({maxWidth: '300'
+            
+            });
+
+            
+                var html_21dd2b9eb9b6cbd1e28f901cf2aa757d = $(`<div id="html_21dd2b9eb9b6cbd1e28f901cf2aa757d" style="width: 100.0%; height: 100.0%;">Nama Hotel: Grand Hotel Jambi<br>Latitude: -1.6198713<br>Longitude: 103.580603<br>Bintang: 3<br>Rentang Harga Kamar: Rp.250.000 - Rp.500.000</div>`)[0];
+                popup_57c78a98e4aa04c4b0b8e00cdd6d8854.setContent(html_21dd2b9eb9b6cbd1e28f901cf2aa757d);
+            
+
+            marker_2c945b61d91cba6f34898d14c7231d56.bindPopup(popup_57c78a98e4aa04c4b0b8e00cdd6d8854)
+            ;
+
+            
+        
+    
+        marker_2c945b61d91cba6f34898d14c7231d56.bindTooltip(
+            `<div>`
+            + `Grand Hotel Jambi` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+        var marker_b661bbddfd14c5d998dab4faabb12672 = L.marker(
+            [-1.601239, 103.5919326],
+            {
+                icon: new L.Icon.Default(),
+                }
+            ).addTo(map_76456ceb02f554743fb011bab5a6d6a0);
+        
+    
+
+                var icon_ed63d80d515f568de87a61eae2f2d451 = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'purple',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_b661bbddfd14c5d998dab4faabb12672.setIcon(icon_ed63d80d515f568de87a61eae2f2d451);
+            
+    
+            var popup_b9b6425c88abdb4b6635a2f20da394d3 = L.popup({maxWidth: '300'
+            
+            });
+
+            
+                var html_9f4f5623dcaa63b0050b1b50b55d53f0 = $(`<div id="html_9f4f5623dcaa63b0050b1b50b55d53f0" style="width: 100.0%; height: 100.0%;">Nama Hotel: Shang Ratu Hotel<br>Latitude: -1.601239<br>Longitude: 103.5919326<br>Bintang: 3<br>Rentang Harga Kamar: Rp.250.000 - Rp.500.000</div>`)[0];
+                popup_b9b6425c88abdb4b6635a2f20da394d3.setContent(html_9f4f5623dcaa63b0050b1b50b55d53f0);
+            
+
+            marker_b661bbddfd14c5d998dab4faabb12672.bindPopup(popup_b9b6425c88abdb4b6635a2f20da394d3)
+            ;
+
+            
+        
+    
+        marker_b661bbddfd14c5d998dab4faabb12672.bindTooltip(
+            `<div>`
+            + `Shang Ratu Hotel` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+        var marker_48e7ea43a8ce68f6a556654197fd0318 = L.marker(
+            [-1.5947491, 103.6115687],
+            {
+                icon: new L.Icon.Default(),
+                }
+            ).addTo(map_76456ceb02f554743fb011bab5a6d6a0);
+        
+    
+
+                var icon_e6bae575bac1a3ba27850543a3acd047 = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'purple',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_48e7ea43a8ce68f6a556654197fd0318.setIcon(icon_e6bae575bac1a3ba27850543a3acd047);
+            
+    
+            var popup_57cbf5e0f26c9e47a20eba090c30feae = L.popup({maxWidth: '300'
+            
+            });
+
+            
+                var html_3effdbd3d7679ae174114dfa1bf45090 = $(`<div id="html_3effdbd3d7679ae174114dfa1bf45090" style="width: 100.0%; height: 100.0%;">Nama Hotel: Abadi Hotel Convention Center Jambi<br>Latitude: -1.5947491<br>Longitude: 103.6115687<br>Bintang: 3<br>Rentang Harga Kamar: Rp.250.000 - Rp.500.000</div>`)[0];
+                popup_57cbf5e0f26c9e47a20eba090c30feae.setContent(html_3effdbd3d7679ae174114dfa1bf45090);
+            
+
+            marker_48e7ea43a8ce68f6a556654197fd0318.bindPopup(popup_57cbf5e0f26c9e47a20eba090c30feae)
+            ;
+
+            
+        
+    
+        marker_48e7ea43a8ce68f6a556654197fd0318.bindTooltip(
+            `<div>`
+            + `Abadi Hotel Convention Center Jambi` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+        var marker_9ce6b2696808f5f1dd785271f925f5b8 = L.marker(
+            [-1.6173869, 103.5548973],
+            {
+                icon: new L.Icon.Default(),
+                }
+            ).addTo(map_76456ceb02f554743fb011bab5a6d6a0);
+        
+    
+
+                var icon_9106adf0a60de767619d9de0fc3928d0 = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'purple',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_9ce6b2696808f5f1dd785271f925f5b8.setIcon(icon_9106adf0a60de767619d9de0fc3928d0);
+            
+    
+            var popup_68f9cfe7d593fc865b45c0631fce7a14 = L.popup({maxWidth: '300'
+            
+            });
+
+            
+                var html_18dca0e424633f2385ab1a3c190646fe = $(`<div id="html_18dca0e424633f2385ab1a3c190646fe" style="width: 100.0%; height: 100.0%;">Nama Hotel: V Hotel Jambi<br>Latitude: -1.6173869<br>Longitude: 103.5548973<br>Bintang: 3<br>Rentang Harga Kamar: Rp.250.000 - Rp.500.000</div>`)[0];
+                popup_68f9cfe7d593fc865b45c0631fce7a14.setContent(html_18dca0e424633f2385ab1a3c190646fe);
+            
+
+            marker_9ce6b2696808f5f1dd785271f925f5b8.bindPopup(popup_68f9cfe7d593fc865b45c0631fce7a14)
+            ;
+
+            
+        
+    
+        marker_9ce6b2696808f5f1dd785271f925f5b8.bindTooltip(
+            `<div>`
+            + `V Hotel Jambi` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+        var marker_d8169d169856ed59e585cf05dee3a735 = L.marker(
+            [-1.5953206, 103.6141328],
+            {
+                icon: new L.Icon.Default(),
+                }
+            ).addTo(map_76456ceb02f554743fb011bab5a6d6a0);
+        
+    
+
+                var icon_64b67f5a142b4ac305d9db0705e2c9a5 = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'purple',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_d8169d169856ed59e585cf05dee3a735.setIcon(icon_64b67f5a142b4ac305d9db0705e2c9a5);
+            
+    
+            var popup_2f4eaed9d6b4be59a43aa99c05277cfa = L.popup({maxWidth: '300'
+            
+            });
+
+            
+                var html_d75251d77c49b4ba19a6e50d1ae8b7a4 = $(`<div id="html_d75251d77c49b4ba19a6e50d1ae8b7a4" style="width: 100.0%; height: 100.0%;">Nama Hotel: Grand Malioboro Hotel <br>Latitude: -1.5953206<br>Longitude: 103.6141328<br>Bintang: 3<br>Rentang Harga Kamar: Rp.250.000 - Rp.500.000</div>`)[0];
+                popup_2f4eaed9d6b4be59a43aa99c05277cfa.setContent(html_d75251d77c49b4ba19a6e50d1ae8b7a4);
+            
+
+            marker_d8169d169856ed59e585cf05dee3a735.bindPopup(popup_2f4eaed9d6b4be59a43aa99c05277cfa)
+            ;
+
+            
+        
+    
+        marker_d8169d169856ed59e585cf05dee3a735.bindTooltip(
+            `<div>`
+            + `Grand Malioboro Hotel ` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+        var marker_22a72cec86d9a0b9a98ccc8bea593bba = L.marker(
+            [-1.5930917, 103.6054638],
+            {
+                icon: new L.Icon.Default(),
+                }
+            ).addTo(map_76456ceb02f554743fb011bab5a6d6a0);
+        
+    
+
+                var icon_7e927391b682649f7031b243ae3e288f = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'purple',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_22a72cec86d9a0b9a98ccc8bea593bba.setIcon(icon_7e927391b682649f7031b243ae3e288f);
+            
+    
+            var popup_608285d3bbee01bf15c7c3308b896c19 = L.popup({maxWidth: '300'
+            
+            });
+
+            
+                var html_12e74578502e868c28bf3aea9518ecb2 = $(`<div id="html_12e74578502e868c28bf3aea9518ecb2" style="width: 100.0%; height: 100.0%;">Nama Hotel: Yello Hotel<br>Latitude: -1.5930917<br>Longitude: 103.6054638<br>Bintang: 3<br>Rentang Harga Kamar: Rp.250.000 - Rp.500.000</div>`)[0];
+                popup_608285d3bbee01bf15c7c3308b896c19.setContent(html_12e74578502e868c28bf3aea9518ecb2);
+            
+
+            marker_22a72cec86d9a0b9a98ccc8bea593bba.bindPopup(popup_608285d3bbee01bf15c7c3308b896c19)
+            ;
+
+            
+        
+    
+        marker_22a72cec86d9a0b9a98ccc8bea593bba.bindTooltip(
+            `<div>`
+            + `Yello Hotel` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+        var marker_662cb4ddcf615d843757e3000efe4cc0 = L.marker(
+            [-1.5998226, 103.6067095],
+            {
+                icon: new L.Icon.Default(),
+                }
+            ).addTo(map_76456ceb02f554743fb011bab5a6d6a0);
+        
+    
+
+                var icon_029559d28f82527e0f0a98fb123c40f6 = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'purple',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_662cb4ddcf615d843757e3000efe4cc0.setIcon(icon_029559d28f82527e0f0a98fb123c40f6);
+            
+    
+            var popup_75a525d95ea658c7b04e67dbe3fe8a1e = L.popup({maxWidth: '300'
+            
+            });
+
+            
+                var html_2be8f0164edfc4aa5a763e78bacfa77f = $(`<div id="html_2be8f0164edfc4aa5a763e78bacfa77f" style="width: 100.0%; height: 100.0%;">Nama Hotel: Ceria Hotel<br>Latitude: -1.5998226<br>Longitude: 103.6067095<br>Bintang: 3<br>Rentang Harga Kamar: Rp.250.000 - Rp.500.000</div>`)[0];
+                popup_75a525d95ea658c7b04e67dbe3fe8a1e.setContent(html_2be8f0164edfc4aa5a763e78bacfa77f);
+            
+
+            marker_662cb4ddcf615d843757e3000efe4cc0.bindPopup(popup_75a525d95ea658c7b04e67dbe3fe8a1e)
+            ;
+
+            
+        
+    
+        marker_662cb4ddcf615d843757e3000efe4cc0.bindTooltip(
+            `<div>`
+            + `Ceria Hotel` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+        var marker_a7b7cb17e73cf8d08623991fbfe6b93b = L.marker(
+            [-1.5945718, 103.6053978],
+            {
+                icon: new L.Icon.Default(),
+                }
+            ).addTo(map_76456ceb02f554743fb011bab5a6d6a0);
+        
+    
+
+                var icon_c8562620e7181e79e5c2688b1c8a0596 = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'purple',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_a7b7cb17e73cf8d08623991fbfe6b93b.setIcon(icon_c8562620e7181e79e5c2688b1c8a0596);
+            
+    
+            var popup_8d5855643267957a1c72fe5edb446402 = L.popup({maxWidth: '300'
+            
+            });
+
+            
+                var html_bf5c1335799d38b948f2ce8a5c3a6bd6 = $(`<div id="html_bf5c1335799d38b948f2ce8a5c3a6bd6" style="width: 100.0%; height: 100.0%;">Nama Hotel: RedDoorz Plus near WTC Batanghari Mall<br>Latitude: -1.5945718<br>Longitude: 103.6053978<br>Bintang: 3<br>Rentang Harga Kamar: < Rp.250.000</div>`)[0];
+                popup_8d5855643267957a1c72fe5edb446402.setContent(html_bf5c1335799d38b948f2ce8a5c3a6bd6);
+            
+
+            marker_a7b7cb17e73cf8d08623991fbfe6b93b.bindPopup(popup_8d5855643267957a1c72fe5edb446402)
+            ;
+
+            
+        
+    
+        marker_a7b7cb17e73cf8d08623991fbfe6b93b.bindTooltip(
+            `<div>`
+            + `RedDoorz Plus near WTC Batanghari Mall` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+            var heat_map_b5196eda762be53e45d429841d86891f = L.heatLayer(
+                [[-1.5990709, 103.6145228], [-1.5888254, 103.6137932], [-1.6031999, 103.5992358], [-1.5899404, 103.6127498], [-1.6198713, 103.580603], [-1.601239, 103.5919326], [-1.5947491, 103.6115687], [-1.6173869, 103.5548973], [-1.5953206, 103.6141328], [-1.5930917, 103.6054638], [-1.5998226, 103.6067095], [-1.5945718, 103.6053978]],
+                {
+                    minOpacity: 0.5,
+                    maxZoom: 18,
+                    max: 1.0,
+                    radius: 25,
+                    blur: 15,
+                    gradient: null
+                    })
+                .addTo(map_76456ceb02f554743fb011bab5a6d6a0);
+        
+</script>

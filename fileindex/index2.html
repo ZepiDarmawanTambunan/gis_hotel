@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<head>    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script>L_PREFER_CANVAS=false; L_NO_TOUCH=false; L_DISABLE_3D=false;</script>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.4.0/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.4.0/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://rawcdn.githack.com/python-visualization/folium/master/folium/templates/leaflet.awesome.rotate.css"/>
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    
+    <meta name="viewport" content="width=device-width,
+        initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <style>#map_b16704e3bb0dcf9f5a5ca8901eb74bdc {
+        position: relative;
+        width: 100.0%;
+        height: 100.0%;
+        left: 0.0%;
+        top: 0.0%;
+        }
+    </style>
+    <script src="https://leaflet.github.io/Leaflet.heat/dist/leaflet-heat.js"></script>
+</head>
+<body>    
+    
+    <div class="folium-map" id="map_b16704e3bb0dcf9f5a5ca8901eb74bdc" ></div>
+</body>
+<script>    
+    
+    
+        var bounds = null;
+    
+
+    var map_b16704e3bb0dcf9f5a5ca8901eb74bdc = L.map(
+        'map_b16704e3bb0dcf9f5a5ca8901eb74bdc', {
+        center: [-1.59577, 103.6112763],
+        zoom: 13,
+        maxBounds: bounds,
+        layers: [],
+        worldCopyJump: false,
+        crs: L.CRS.EPSG3857,
+        zoomControl: true,
+        });
+
+
+    
+    var tile_layer_fe74d72842680ad0ca1922b36222f980 = L.tileLayer(
+        'https://cartodb-basemaps-{s}.global.ssl.fastly.net/dark_all/{z}/{x}/{y}.png',
+        {
+        "attribution": null,
+        "detectRetina": false,
+        "maxNativeZoom": 18,
+        "maxZoom": 18,
+        "minZoom": 0,
+        "noWrap": false,
+        "opacity": 1,
+        "subdomains": "abc",
+        "tms": false
+}).addTo(map_b16704e3bb0dcf9f5a5ca8901eb74bdc);
+    
+        var marker_74b52417dfd7504cc8774e08a39c0e2a = L.marker(
+            [-1.6189364, 103.6276479],
+            {
+                icon: new L.Icon.Default(),
+                }
+            ).addTo(map_b16704e3bb0dcf9f5a5ca8901eb74bdc);
+        
+    
+
+                var icon_be700605ee28daea52552e4a6ff97a9e = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'red',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_74b52417dfd7504cc8774e08a39c0e2a.setIcon(icon_be700605ee28daea52552e4a6ff97a9e);
+            
+    
+            var popup_cf86a87af8a91c846883047a201e736e = L.popup({maxWidth: '300'
+            
+            });
+
+            
+                var html_4caf3abfcd2f7541382e50e91c2f5da5 = $(`<div id="html_4caf3abfcd2f7541382e50e91c2f5da5" style="width: 100.0%; height: 100.0%;">Nama Hotel: BW Luxury Hotel Jambi<br>Latitude: -1.6189364<br>Longitude: 103.6276479<br>Bintang: 5<br>Rentang Harga Kamar: > Rp.500.000</div>`)[0];
+                popup_cf86a87af8a91c846883047a201e736e.setContent(html_4caf3abfcd2f7541382e50e91c2f5da5);
+            
+
+            marker_74b52417dfd7504cc8774e08a39c0e2a.bindPopup(popup_cf86a87af8a91c846883047a201e736e)
+            ;
+
+            
+        
+    
+        marker_74b52417dfd7504cc8774e08a39c0e2a.bindTooltip(
+            `<div>`
+            + `BW Luxury Hotel Jambi` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+            var heat_map_dbc3a94fcef586244707c90f6d534560 = L.heatLayer(
+                [[-1.6189364, 103.6276479]],
+                {
+                    minOpacity: 0.5,
+                    maxZoom: 18,
+                    max: 1.0,
+                    radius: 25,
+                    blur: 15,
+                    gradient: null
+                    })
+                .addTo(map_b16704e3bb0dcf9f5a5ca8901eb74bdc);
+        
+</script>

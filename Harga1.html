@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- <start> kode untuk terhubung pada beberapa library utk menampilkan peta -->
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+        <script>L_PREFER_CANVAS=false; L_NO_TOUCH=false; L_DISABLE_3D=false;</script>
+        <script src="https://cdn.jsdelivr.net/npm/leaflet@1.4.0/dist/leaflet.js"></script>
+        <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.4.0/dist/leaflet.css"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+        <link rel="stylesheet" href="https://rawcdn.githack.com/python-visualization/folium/master/folium/templates/leaflet.awesome.rotate.css"/>
+        <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <!-- <end> -->
+
+    <title>Dashboard</title>
+    
+    <!-- koneksi ke fontawesome untuk menampilkan icon -->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <!-- koneksi ke google font untuk menggunakan font Nunito -->
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+    <!-- menghubungkan ke file template css agar menampilkan style pada website -->
+    <link href="sb-admin-2.min.css" rel="stylesheet">
+    <!-- berfungsi untuk menampilkkan Heat -->
+    <script src="https://leaflet.github.io/Leaflet.heat/dist/leaflet-heat.js"></script>
+
+<style>
+
+    #map_bb4335adb1057de98e7b240245c97375 {
+        width: 100.0%;
+        height: 85.0%;
+    }
+    .bintang5{
+        background-color: #F94C66;
+    }
+
+    .bintang4{
+        background-color: #FFC54D;
+    }
+
+    .bintang3{
+        background-color: #A760FF;
+    }
+
+    .bintang2{
+        background-color: #4B7BE5;
+    }
+
+    .bintang1{
+        background-color: #4E944F;
+    }
+
+    .bintang0{
+        background-color: #F9CEEE;
+    }
+
+    .harga1{
+        background-color: #F94C66;
+    }
+    
+    .harga2{
+        background-color: #FFC54D;
+    }
+
+    .harga3{
+        background-color: #A760FF;
+    }
+
+    .kotak{
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+    }
+
+    @media only screen and (max-width: 600px) {
+        #map_bb4335adb1057de98e7b240245c97375 {
+            width: 100.0%;
+            height: 66vh;
+        }
+
+        .kotak{
+            width: 0px;
+            height: 0px;
+            border-radius: 0px;
+            background-color: none;
+        }
+    }
+
+    .glyphicon{
+        width: 13px;
+        height: 13px;
+        background-color: white;
+        position: absolute;
+        left: 11px;
+        border-radius: 50%;
+    }
+
+</style>
+</head>
+
+<body id="page-top">
+    <div id="wrapper">
+        <!-- Sidebar -->
+        <ul style="height: 100%;" class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+            <!-- Sidebar - Brand -->
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+                <div class="sidebar-brand-icon rotate-n-15">
+                    SIG
+                </div>
+                <div class="sidebar-brand-text mx-1">Sistem Informasi Geografis</div>
+            </a>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
+
+            <!-- Nav Item - Dashboard -->
+            <li class="nav-item">
+                <a class="nav-link" href="Dashboard.html">
+                    <span>Dashboard</span></a>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                Bintang Hotel
+            </div>
+
+            <!-- Nav Item - Charts -->
+            <li class="nav-item">
+                <a class="nav-link d-flex" href="Bintang5.html">
+                    <div class="kotak bintang5 mr-2"></div>
+                    <span class="align-self-center">Bintang 5</span>
+                </a>
+            </li>
+
+            <!-- Nav Item - Tables -->
+            <li class="nav-item">
+                <a class="nav-link d-flex" href="Bintang4.html">
+                    <div class="kotak bintang4 mr-2"></div>
+                    <span class="align-self-center">Bintang 4</span>
+                </a>
+            </li>
+
+            <!-- Nav Item - Tables -->
+            <li class="nav-item">
+                <a class="nav-link d-flex" href="Bintang3.html">
+                    <div class="kotak bintang3 mr-2"></div>
+                    <span class="align-self-center">Bintang 3</span>
+                </a>
+            </li>
+
+            <!-- Nav Item - Tables -->
+            <li class="nav-item">
+                <a class="nav-link d-flex" href="Bintang2.html">
+                    <div class="kotak bintang2 mr-2"></div>
+                    <span class="align-self-center">Bintang 2</span>
+                </a>
+            </li>
+
+            
+            <!-- Nav Item - Tables -->
+            <li class="nav-item">
+                <a class="nav-link d-flex" href="Bintang1.html">
+                    <div class="kotak bintang1 mr-2"></div>
+                    <span class="align-self-center">Bintang 1</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link d-flex" href="Bintang0.html">
+                    <div class="kotak bintang0 mr-2"></div>
+                    <span class="align-self-center">Bintang 0</span>
+                </a>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+
+             <!-- Heading -->
+             <div class="sidebar-heading">
+                Rentang Harga
+            </div>
+
+            <!-- Nav Item - Tables -->
+            <li class="nav-item active">
+                <a class="nav-link d-flex" href="Harga1.html">
+                    <div class="kotak harga1 mr-2"></div>
+                    <span class="align-self-center">> Rp.500.000</span>
+                </a>
+            </li>
+
+            <!-- Nav Item - Tables -->
+            <li class="nav-item">
+                <a class="nav-link d-flex" href="Harga2.html">
+                    <div class="kotak harga2 mr-2"></div>
+                    <span class="align-self-center">> Rp.250.000 - Rp.500.000</span>
+                </a>
+            </li>
+
+            <!-- Nav Item - Tables -->
+            <li class="nav-item">
+                <a class="nav-link d-flex" href="Harga3.html">
+                    <div class="kotak harga3 mr-2"></div>
+                    <span class="align-self-center">< Rp.250.000</span>
+                </a>
+            </li>
+        </ul>
+        <!-- End of Sidebar -->
+    
+        <!-- Start of Content -->
+        <div class="container-fluid">
+            <h1 class="mt-4 text-gray-800 text-center">Sistem Informasi Pemetaan Hotel diKota Jambi</h1>
+            <div class="folium-map mt-4" id="map_bb4335adb1057de98e7b240245c97375" ></div> 
+        </div>
+        <!-- End of Content -->
+
+    <!-- kode ini berfungsi untuk terhubung dengan bootstrap -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- kode ini berfungsi untuk terhubung dengan js template sbadmin -->
+    <script src="sb-admin-2.min.js"></script>
+</body>
+<!-- <Start> kode bawaan dari file index pada google colab -->
+<script>    
+    
+    
+        var bounds = null;
+    
+
+    var map_bb4335adb1057de98e7b240245c97375 = L.map(
+        'map_bb4335adb1057de98e7b240245c97375', {
+        center: [-1.59577, 103.6112763],
+        zoom: 13,
+        maxBounds: bounds,
+        layers: [],
+        worldCopyJump: false,
+        crs: L.CRS.EPSG3857,
+        zoomControl: true,
+        });
+
+
+    
+    var tile_layer_f61d2bf16310f19a3f6d63d3abab03d5 = L.tileLayer(
+        'https://cartodb-basemaps-{s}.global.ssl.fastly.net/dark_all/{z}/{x}/{y}.png',
+        {
+        "attribution": null,
+        "detectRetina": false,
+        "maxNativeZoom": 18,
+        "maxZoom": 18,
+        "minZoom": 0,
+        "noWrap": false,
+        "opacity": 1,
+        "subdomains": "abc",
+        "tms": false
+}).addTo(map_bb4335adb1057de98e7b240245c97375);
+    
+        var marker_d835ba11646b6d5bd4b215e2672c6389 = L.marker(
+            [-1.6189364, 103.6276479],
+            {
+                icon: new L.Icon.Default(),
+                }
+            ).addTo(map_bb4335adb1057de98e7b240245c97375);
+        
+    
+
+                var icon_fdd7820dbb77499b8621aba6b3fae5e6 = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'red',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_d835ba11646b6d5bd4b215e2672c6389.setIcon(icon_fdd7820dbb77499b8621aba6b3fae5e6);
+            
+    
+            var popup_0433c4db0f0d8a65e3ff4b15ac3fb688 = L.popup({maxWidth: '300'
+            
+            });
+
+            
+                var html_525e2e011d6a9c74deaea1f523314586 = $(`<div id="html_525e2e011d6a9c74deaea1f523314586" style="width: 100.0%; height: 100.0%;">Nama Hotel: BW Luxury Hotel Jambi<br>Latitude: -1.6189364<br>Longitude: 103.6276479<br>Bintang: 5<br>Rentang Harga Kamar: > Rp.500.000</div>`)[0];
+                popup_0433c4db0f0d8a65e3ff4b15ac3fb688.setContent(html_525e2e011d6a9c74deaea1f523314586);
+            
+
+            marker_d835ba11646b6d5bd4b215e2672c6389.bindPopup(popup_0433c4db0f0d8a65e3ff4b15ac3fb688)
+            ;
+
+            
+        
+    
+        marker_d835ba11646b6d5bd4b215e2672c6389.bindTooltip(
+            `<div>`
+            + `BW Luxury Hotel Jambi` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+        var marker_fee3b46746e21fb88abd143819269542 = L.marker(
+            [-1.5899404, 103.6127498],
+            {
+                icon: new L.Icon.Default(),
+                }
+            ).addTo(map_bb4335adb1057de98e7b240245c97375);
+        
+    
+
+                var icon_ee7ea17e185442fd3bf2c3cb93139d74 = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'red',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_fee3b46746e21fb88abd143819269542.setIcon(icon_ee7ea17e185442fd3bf2c3cb93139d74);
+            
+    
+            var popup_cc256ab3dccc670c8d6ed5697ac5c79b = L.popup({maxWidth: '300'
+            
+            });
+
+            
+                var html_e9e7831e05ed06a37ca98ef60e7eb0f4 = $(`<div id="html_e9e7831e05ed06a37ca98ef60e7eb0f4" style="width: 100.0%; height: 100.0%;">Nama Hotel: Infinity Hotel Jambi By Tritama Hopitality<br>Latitude: -1.5899404<br>Longitude: 103.6127498<br>Bintang: 3<br>Rentang Harga Kamar: > Rp.500.000</div>`)[0];
+                popup_cc256ab3dccc670c8d6ed5697ac5c79b.setContent(html_e9e7831e05ed06a37ca98ef60e7eb0f4);
+            
+
+            marker_fee3b46746e21fb88abd143819269542.bindPopup(popup_cc256ab3dccc670c8d6ed5697ac5c79b)
+            ;
+
+            
+        
+    
+        marker_fee3b46746e21fb88abd143819269542.bindTooltip(
+            `<div>`
+            + `Infinity Hotel Jambi By Tritama Hopitality` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+        var marker_9127fb8693ee10ba2332e43a73ab77bf = L.marker(
+            [-1.6044473, 103.5987633],
+            {
+                icon: new L.Icon.Default(),
+                }
+            ).addTo(map_bb4335adb1057de98e7b240245c97375);
+        
+    
+
+                var icon_b4ce34008b4a8f9ff9b95a84651d1260 = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'red',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_9127fb8693ee10ba2332e43a73ab77bf.setIcon(icon_b4ce34008b4a8f9ff9b95a84651d1260);
+            
+    
+            var popup_80a771114ed328bf9ae71dcf2be24e6d = L.popup({maxWidth: '300'
+            
+            });
+
+            
+                var html_f8ff75ab50b8b118b8b157db3de5e9db = $(`<div id="html_f8ff75ab50b8b118b8b157db3de5e9db" style="width: 100.0%; height: 100.0%;">Nama Hotel: Swiss-Belhotel Jambi<br>Latitude: -1.6044473<br>Longitude: 103.5987633<br>Bintang: 4<br>Rentang Harga Kamar: > Rp.500.000</div>`)[0];
+                popup_80a771114ed328bf9ae71dcf2be24e6d.setContent(html_f8ff75ab50b8b118b8b157db3de5e9db);
+            
+
+            marker_9127fb8693ee10ba2332e43a73ab77bf.bindPopup(popup_80a771114ed328bf9ae71dcf2be24e6d)
+            ;
+
+            
+        
+    
+        marker_9127fb8693ee10ba2332e43a73ab77bf.bindTooltip(
+            `<div>`
+            + `Swiss-Belhotel Jambi` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+        var marker_9c8182ae984548259b370d425386ac35 = L.marker(
+            [-1.6014953, 103.602528],
+            {
+                icon: new L.Icon.Default(),
+                }
+            ).addTo(map_bb4335adb1057de98e7b240245c97375);
+        
+    
+
+                var icon_bd756993d20225d820381d40a962f176 = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'red',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_9c8182ae984548259b370d425386ac35.setIcon(icon_bd756993d20225d820381d40a962f176);
+            
+    
+            var popup_0cac1c5a65a8ecb0481f5ed5ad6b9842 = L.popup({maxWidth: '300'
+            
+            });
+
+            
+                var html_ae695772d4a13d6ab5566c457c08ce1e = $(`<div id="html_ae695772d4a13d6ab5566c457c08ce1e" style="width: 100.0%; height: 100.0%;">Nama Hotel: ASTON Jambi Hotel & Conference Center<br>Latitude: -1.6014953<br>Longitude: 103.602528<br>Bintang: 4<br>Rentang Harga Kamar: > Rp.500.000</div>`)[0];
+                popup_0cac1c5a65a8ecb0481f5ed5ad6b9842.setContent(html_ae695772d4a13d6ab5566c457c08ce1e);
+            
+
+            marker_9c8182ae984548259b370d425386ac35.bindPopup(popup_0cac1c5a65a8ecb0481f5ed5ad6b9842)
+            ;
+
+            
+        
+    
+        marker_9c8182ae984548259b370d425386ac35.bindTooltip(
+            `<div>`
+            + `ASTON Jambi Hotel & Conference Center` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+            var heat_map_370c8698670704c4f6553c2ed01b3481 = L.heatLayer(
+                [[-1.6189364, 103.6276479], [-1.5899404, 103.6127498], [-1.6044473, 103.5987633], [-1.6014953, 103.602528]],
+                {
+                    minOpacity: 0.5,
+                    maxZoom: 18,
+                    max: 1.0,
+                    radius: 25,
+                    blur: 15,
+                    gradient: null
+                    })
+                .addTo(map_bb4335adb1057de98e7b240245c97375);
+        
+</script>
+<!-- <End> -->
+
+</html>

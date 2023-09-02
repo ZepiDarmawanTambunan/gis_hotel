@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- <start> kode untuk terhubung pada beberapa library utk menampilkan peta -->
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+        <script>L_PREFER_CANVAS=false; L_NO_TOUCH=false; L_DISABLE_3D=false;</script>
+        <script src="https://cdn.jsdelivr.net/npm/leaflet@1.4.0/dist/leaflet.js"></script>
+        <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.4.0/dist/leaflet.css"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+        <link rel="stylesheet" href="https://rawcdn.githack.com/python-visualization/folium/master/folium/templates/leaflet.awesome.rotate.css"/>
+        <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <!-- <end> -->
+
+    <title>Dashboard</title>
+    
+    <!-- koneksi ke fontawesome untuk menampilkan icon -->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <!-- koneksi ke google font untuk menggunakan font Nunito -->
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+    <!-- menghubungkan ke file template css agar menampilkan style pada website -->
+    <link href="sb-admin-2.min.css" rel="stylesheet">
+    <!-- berfungsi untuk menampilkkan Heat -->
+    <script src="https://leaflet.github.io/Leaflet.heat/dist/leaflet-heat.js"></script>
+
+<style>
+
+    #map_6dff6b037bf2da856892e5576d059123 {
+        width: 100.0%;
+        height: 85.0%;
+    }
+
+    .bintang5{
+        background-color: #F94C66;
+    }
+
+    .bintang4{
+        background-color: #FFC54D;
+    }
+
+    .bintang3{
+        background-color: #A760FF;
+    }
+
+    .bintang2{
+        background-color: #4B7BE5;
+    }
+
+    .bintang1{
+        background-color: #4E944F;
+    }
+
+    .bintang0{
+        background-color: #F9CEEE;
+    }
+
+    .harga1{
+        background-color: #F94C66;
+    }
+    
+    .harga2{
+        background-color: #FFC54D;
+    }
+
+    .harga3{
+        background-color: #A760FF;
+    }
+
+    .kotak{
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+    }
+
+    @media only screen and (max-width: 600px) {
+        #map_6dff6b037bf2da856892e5576d059123 {
+            width: 100.0%;
+            height: 66vh;
+        }
+
+        .kotak{
+            width: 0px;
+            height: 0px;
+            border-radius: 0px;
+            background-color: none;
+        }
+    }
+
+    .glyphicon{
+        width: 13px;
+        height: 13px;
+        background-color: white;
+        position: absolute;
+        left: 11px;
+        border-radius: 50%;
+    }
+
+</style>
+</head>
+
+<body id="page-top">
+    <div id="wrapper">
+        <!-- Sidebar -->
+        <ul style="height: 100%;" class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+            <!-- Sidebar - Brand -->
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+                <div class="sidebar-brand-icon rotate-n-15">
+                    SIG
+                </div>
+                <div class="sidebar-brand-text mx-1">Sistem Informasi Geografis</div>
+            </a>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
+
+            <!-- Nav Item - Dashboard -->
+            <li class="nav-item">
+                <a class="nav-link" href="Dashboard.html">
+                    <span>Dashboard</span></a>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                Bintang Hotel
+            </div>
+
+
+            <!-- Nav Item - Charts -->
+            <li class="nav-item">
+                <a class="nav-link d-flex" href="Bintang5.html">
+                    <div class="kotak bintang5 mr-2"></div>
+                    <span class="align-self-center">Bintang 5</span>
+                </a>
+            </li>
+
+            <!-- Nav Item - Tables -->
+            <li class="nav-item">
+                <a class="nav-link d-flex" href="Bintang4.html">
+                    <div class="kotak bintang4 mr-2"></div>
+                    <span class="align-self-center">Bintang 4</span>
+                </a>
+            </li>
+
+            <!-- Nav Item - Tables -->
+            <li class="nav-item">
+                <a class="nav-link d-flex" href="Bintang3.html">
+                    <div class="kotak bintang3 mr-2"></div>
+                    <span class="align-self-center">Bintang 3</span>
+                </a>
+            </li>
+
+            <!-- Nav Item - Tables -->
+            <li class="nav-item">
+                <a class="nav-link d-flex" href="Bintang2.html">
+                    <div class="kotak bintang2 mr-2"></div>
+                    <span class="align-self-center">Bintang 2</span>
+                </a>
+            </li>
+
+            
+            <!-- Nav Item - Tables -->
+            <li class="nav-item active">
+                <a class="nav-link d-flex" href="Bintang1.html">
+                    <div class="kotak bintang1 mr-2"></div>
+                    <span class="align-self-center">Bintang 1</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link d-flex" href="Bintang0.html">
+                    <div class="kotak bintang0 mr-2"></div>
+                    <span class="align-self-center">Bintang 0</span>
+                </a>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+
+             <!-- Heading -->
+             <div class="sidebar-heading">
+                Rentang Harga
+            </div>
+
+            <!-- Nav Item - Tables -->
+            <li class="nav-item">
+                <a class="nav-link d-flex" href="Harga1.html">
+                    <div class="kotak harga1 mr-2"></div>
+                    <span class="align-self-center">> Rp.500.000</span>
+                </a>
+            </li>
+
+            <!-- Nav Item - Tables -->
+            <li class="nav-item">
+                <a class="nav-link d-flex" href="Harga2.html">
+                    <div class="kotak harga2 mr-2"></div>
+                    <span class="align-self-center">> Rp.250.000 - Rp.500.000</span>
+                </a>
+            </li>
+
+            <!-- Nav Item - Tables -->
+            <li class="nav-item">
+                <a class="nav-link d-flex" href="Harga3.html">
+                    <div class="kotak harga3 mr-2"></div>
+                    <span class="align-self-center">< Rp.250.000</span>
+                </a>
+            </li>
+        </ul>
+        <!-- End of Sidebar -->
+    
+        <!-- Start of Content -->
+        <div class="container-fluid">
+            <h1 class="mt-4 text-gray-800 text-center">Sistem Informasi Pemetaan Hotel diKota Jambi</h1>
+            <div class="folium-map mt-4" id="map_6dff6b037bf2da856892e5576d059123" ></div> 
+        </div>
+        <!-- End of Content -->
+
+    <!-- kode ini berfungsi untuk terhubung dengan bootstrap -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- kode ini berfungsi untuk terhubung dengan js template sbadmin -->
+    <script src="sb-admin-2.min.js"></script>
+</body>
+<!-- <Start> kode bawaan dari file index pada google colab -->
+<script>    
+    
+    
+        var bounds = null;
+    
+
+    var map_6dff6b037bf2da856892e5576d059123 = L.map(
+        'map_6dff6b037bf2da856892e5576d059123', {
+        center: [-1.59577, 103.6112763],
+        zoom: 13,
+        maxBounds: bounds,
+        layers: [],
+        worldCopyJump: false,
+        crs: L.CRS.EPSG3857,
+        zoomControl: true,
+        });
+
+
+    
+    var tile_layer_260e0ec0dfd1bd364a7b0bdc3c41719a = L.tileLayer(
+        'https://cartodb-basemaps-{s}.global.ssl.fastly.net/dark_all/{z}/{x}/{y}.png',
+        {
+        "attribution": null,
+        "detectRetina": false,
+        "maxNativeZoom": 18,
+        "maxZoom": 18,
+        "minZoom": 0,
+        "noWrap": false,
+        "opacity": 1,
+        "subdomains": "abc",
+        "tms": false
+}).addTo(map_6dff6b037bf2da856892e5576d059123);
+    
+        var marker_7bc96bf2cd69418ed7b3cc7cfbce2880 = L.marker(
+            [-1.58901, 103.6143803],
+            {
+                icon: new L.Icon.Default(),
+                }
+            ).addTo(map_6dff6b037bf2da856892e5576d059123);
+        
+    
+
+                var icon_77202e8ffd488a11eb7b37134c3b36fc = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'green',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_7bc96bf2cd69418ed7b3cc7cfbce2880.setIcon(icon_77202e8ffd488a11eb7b37134c3b36fc);
+            
+    
+            var popup_1fa55b8495eb2d2262e4bab85946748c = L.popup({maxWidth: '300'
+            
+            });
+
+            
+                var html_1a62c3a896b2c8001d49f7abe1e487bd = $(`<div id="html_1a62c3a896b2c8001d49f7abe1e487bd" style="width: 100.0%; height: 100.0%;">Nama Hotel: T-One Hotel<br>Latitude: -1.58901<br>Longitude: 103.6143803<br>Bintang: 1<br>Rentang Harga Kamar: < Rp.250.000</div>`)[0];
+                popup_1fa55b8495eb2d2262e4bab85946748c.setContent(html_1a62c3a896b2c8001d49f7abe1e487bd);
+            
+
+            marker_7bc96bf2cd69418ed7b3cc7cfbce2880.bindPopup(popup_1fa55b8495eb2d2262e4bab85946748c)
+            ;
+
+            
+        
+    
+        marker_7bc96bf2cd69418ed7b3cc7cfbce2880.bindTooltip(
+            `<div>`
+            + `T-One Hotel` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+        var marker_ce1a20dd54d948f39321924176bd408b = L.marker(
+            [-1.6080973, 103.602297],
+            {
+                icon: new L.Icon.Default(),
+                }
+            ).addTo(map_6dff6b037bf2da856892e5576d059123);
+        
+    
+
+                var icon_6533b723f38be844ccd12c07503f7ce2 = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'green',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_ce1a20dd54d948f39321924176bd408b.setIcon(icon_6533b723f38be844ccd12c07503f7ce2);
+            
+    
+            var popup_5373d5e60fccb5b14de703af05b15b61 = L.popup({maxWidth: '300'
+            
+            });
+
+            
+                var html_ecc77242c85a1170890635548b0da673 = $(`<div id="html_ecc77242c85a1170890635548b0da673" style="width: 100.0%; height: 100.0%;">Nama Hotel: Harisman Hotel<br>Latitude: -1.6080973<br>Longitude: 103.602297<br>Bintang: 1<br>Rentang Harga Kamar: < Rp.250.000</div>`)[0];
+                popup_5373d5e60fccb5b14de703af05b15b61.setContent(html_ecc77242c85a1170890635548b0da673);
+            
+
+            marker_ce1a20dd54d948f39321924176bd408b.bindPopup(popup_5373d5e60fccb5b14de703af05b15b61)
+            ;
+
+            
+        
+    
+        marker_ce1a20dd54d948f39321924176bd408b.bindTooltip(
+            `<div>`
+            + `Harisman Hotel` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+        var marker_219aa0072aba1d9095ea2e2709b00ed0 = L.marker(
+            [-1.6069193, 103.6197782],
+            {
+                icon: new L.Icon.Default(),
+                }
+            ).addTo(map_6dff6b037bf2da856892e5576d059123);
+        
+    
+
+                var icon_9a2eee1687a4522447e11e4487fe532d = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'green',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_219aa0072aba1d9095ea2e2709b00ed0.setIcon(icon_9a2eee1687a4522447e11e4487fe532d);
+            
+    
+            var popup_567599fff4e91389d5ca777419e2430b = L.popup({maxWidth: '300'
+            
+            });
+
+            
+                var html_61d4609c3a80c1d4c8fb18f0c9bd5273 = $(`<div id="html_61d4609c3a80c1d4c8fb18f0c9bd5273" style="width: 100.0%; height: 100.0%;">Nama Hotel: Pundi Rezeki Hotel<br>Latitude: -1.6069193<br>Longitude: 103.6197782<br>Bintang: 1<br>Rentang Harga Kamar: < Rp.250.000</div>`)[0];
+                popup_567599fff4e91389d5ca777419e2430b.setContent(html_61d4609c3a80c1d4c8fb18f0c9bd5273);
+            
+
+            marker_219aa0072aba1d9095ea2e2709b00ed0.bindPopup(popup_567599fff4e91389d5ca777419e2430b)
+            ;
+
+            
+        
+    
+        marker_219aa0072aba1d9095ea2e2709b00ed0.bindTooltip(
+            `<div>`
+            + `Pundi Rezeki Hotel` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+        var marker_0335229eae7d6601153d59f5f09ce516 = L.marker(
+            [-1.5965707, 103.6134231],
+            {
+                icon: new L.Icon.Default(),
+                }
+            ).addTo(map_6dff6b037bf2da856892e5576d059123);
+        
+    
+
+                var icon_112bf7d7c083d438243d9abdae44b220 = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'green',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_0335229eae7d6601153d59f5f09ce516.setIcon(icon_112bf7d7c083d438243d9abdae44b220);
+            
+    
+            var popup_c85f310cda143d455868c0a0bb3da427 = L.popup({maxWidth: '300'
+            
+            });
+
+            
+                var html_4b7658793f4f3cf85ecb164a69b9a932 = $(`<div id="html_4b7658793f4f3cf85ecb164a69b9a932" style="width: 100.0%; height: 100.0%;">Nama Hotel: Jambi Raya Hotel<br>Latitude: -1.5965707<br>Longitude: 103.6134231<br>Bintang: 1<br>Rentang Harga Kamar: < Rp.250.000</div>`)[0];
+                popup_c85f310cda143d455868c0a0bb3da427.setContent(html_4b7658793f4f3cf85ecb164a69b9a932);
+            
+
+            marker_0335229eae7d6601153d59f5f09ce516.bindPopup(popup_c85f310cda143d455868c0a0bb3da427)
+            ;
+
+            
+        
+    
+        marker_0335229eae7d6601153d59f5f09ce516.bindTooltip(
+            `<div>`
+            + `Jambi Raya Hotel` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+        var marker_d6623bff4ec873391db72a25aafff436 = L.marker(
+            [-1.6111976, 103.620306],
+            {
+                icon: new L.Icon.Default(),
+                }
+            ).addTo(map_6dff6b037bf2da856892e5576d059123);
+        
+    
+
+                var icon_5aa76e1f9948829f4845709fb8231f33 = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'green',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_d6623bff4ec873391db72a25aafff436.setIcon(icon_5aa76e1f9948829f4845709fb8231f33);
+            
+    
+            var popup_7211035adb4c9cb030ce11a7451ce0a6 = L.popup({maxWidth: '300'
+            
+            });
+
+            
+                var html_73ed33fb9548d6cb3101e489af5ee001 = $(`<div id="html_73ed33fb9548d6cb3101e489af5ee001" style="width: 100.0%; height: 100.0%;">Nama Hotel: Safera Hotel<br>Latitude: -1.6111976<br>Longitude: 103.620306<br>Bintang: 1<br>Rentang Harga Kamar: < Rp.250.000</div>`)[0];
+                popup_7211035adb4c9cb030ce11a7451ce0a6.setContent(html_73ed33fb9548d6cb3101e489af5ee001);
+            
+
+            marker_d6623bff4ec873391db72a25aafff436.bindPopup(popup_7211035adb4c9cb030ce11a7451ce0a6)
+            ;
+
+            
+        
+    
+        marker_d6623bff4ec873391db72a25aafff436.bindTooltip(
+            `<div>`
+            + `Safera Hotel` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+        var marker_cb56ff02fec270eea1caad874ac73b51 = L.marker(
+            [-1.6185878, 103.5875179],
+            {
+                icon: new L.Icon.Default(),
+                }
+            ).addTo(map_6dff6b037bf2da856892e5576d059123);
+        
+    
+
+                var icon_189697fc9dc910f959dde1fd4cd8081e = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'green',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_cb56ff02fec270eea1caad874ac73b51.setIcon(icon_189697fc9dc910f959dde1fd4cd8081e);
+            
+    
+            var popup_5e1a2085e9e3dfc175260af82b04e88e = L.popup({maxWidth: '300'
+            
+            });
+
+            
+                var html_d2ba2af67132371ac7103fc15d581390 = $(`<div id="html_d2ba2af67132371ac7103fc15d581390" style="width: 100.0%; height: 100.0%;">Nama Hotel: Marisa Hotel<br>Latitude: -1.6185878<br>Longitude: 103.5875179<br>Bintang: 1<br>Rentang Harga Kamar: < Rp.250.000</div>`)[0];
+                popup_5e1a2085e9e3dfc175260af82b04e88e.setContent(html_d2ba2af67132371ac7103fc15d581390);
+            
+
+            marker_cb56ff02fec270eea1caad874ac73b51.bindPopup(popup_5e1a2085e9e3dfc175260af82b04e88e)
+            ;
+
+            
+        
+    
+        marker_cb56ff02fec270eea1caad874ac73b51.bindTooltip(
+            `<div>`
+            + `Marisa Hotel` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+        var marker_07e56e511756aba77cba590e9dce2015 = L.marker(
+            [-1.6078335, 103.6027439],
+            {
+                icon: new L.Icon.Default(),
+                }
+            ).addTo(map_6dff6b037bf2da856892e5576d059123);
+        
+    
+
+                var icon_bda384d14588288f6a1c58c7df0206b6 = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'green',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_07e56e511756aba77cba590e9dce2015.setIcon(icon_bda384d14588288f6a1c58c7df0206b6);
+            
+    
+            var popup_6c1f1db6aa5bf5807e91ac448c3f11a9 = L.popup({maxWidth: '300'
+            
+            });
+
+            
+                var html_11917534d74cd8b82d37e6890f9709f4 = $(`<div id="html_11917534d74cd8b82d37e6890f9709f4" style="width: 100.0%; height: 100.0%;">Nama Hotel: Lestari Hotel<br>Latitude: -1.6078335<br>Longitude: 103.6027439<br>Bintang: 1<br>Rentang Harga Kamar: < Rp.250.000</div>`)[0];
+                popup_6c1f1db6aa5bf5807e91ac448c3f11a9.setContent(html_11917534d74cd8b82d37e6890f9709f4);
+            
+
+            marker_07e56e511756aba77cba590e9dce2015.bindPopup(popup_6c1f1db6aa5bf5807e91ac448c3f11a9)
+            ;
+
+            
+        
+    
+        marker_07e56e511756aba77cba590e9dce2015.bindTooltip(
+            `<div>`
+            + `Lestari Hotel` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+        var marker_1e26af8733170ca373164b815514aada = L.marker(
+            [-1.5946952, 103.6119639],
+            {
+                icon: new L.Icon.Default(),
+                }
+            ).addTo(map_6dff6b037bf2da856892e5576d059123);
+        
+    
+
+                var icon_d600f55fa2edf88c674588384dbc2556 = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'green',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_1e26af8733170ca373164b815514aada.setIcon(icon_d600f55fa2edf88c674588384dbc2556);
+            
+    
+            var popup_5cc5c6aedb89b6cc3504a4f4ad848382 = L.popup({maxWidth: '300'
+            
+            });
+
+            
+                var html_4d95ffab7d26f756b3b71c3319af12b7 = $(`<div id="html_4d95ffab7d26f756b3b71c3319af12b7" style="width: 100.0%; height: 100.0%;">Nama Hotel: Fortuna Hotel<br>Latitude: -1.5946952<br>Longitude: 103.6119639<br>Bintang: 1<br>Rentang Harga Kamar: < Rp.250.000</div>`)[0];
+                popup_5cc5c6aedb89b6cc3504a4f4ad848382.setContent(html_4d95ffab7d26f756b3b71c3319af12b7);
+            
+
+            marker_1e26af8733170ca373164b815514aada.bindPopup(popup_5cc5c6aedb89b6cc3504a4f4ad848382)
+            ;
+
+            
+        
+    
+        marker_1e26af8733170ca373164b815514aada.bindTooltip(
+            `<div>`
+            + `Fortuna Hotel` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+            var heat_map_2a783253d2f62880d51d097f5f72ef86 = L.heatLayer(
+                [[-1.58901, 103.6143803], [-1.6080973, 103.602297], [-1.6069193, 103.6197782], [-1.5965707, 103.6134231], [-1.6111976, 103.620306], [-1.6185878, 103.5875179], [-1.6078335, 103.6027439], [-1.5946952, 103.6119639]],
+                {
+                    minOpacity: 0.5,
+                    maxZoom: 18,
+                    max: 1.0,
+                    radius: 25,
+                    blur: 15,
+                    gradient: null
+                    })
+                .addTo(map_6dff6b037bf2da856892e5576d059123);
+        
+</script>
+<!-- <End> -->
+
+</html>
